@@ -25,17 +25,22 @@ app.innerHTML = `
     <a class="brand" href="#/"><img src="logo.png" alt="Logo PediaCalc"><div><strong>PediaCalc EC</strong><small>Calculadora pediátrica</small></div></a>
     <nav class="nav">${ROUTES.map((r) => `<a href="#/${r.path}" data-r="${r.path}">${icon(r.icon)}<span>${r.label}</span></a>`).join('')}</nav>
     <div class="foot">
+      <div class="uni-badge"><img src="logo-universidad.png" alt="Logo de la universidad"><span>Proyecto académico<br>universitario</span></div>
       <span class="status-pill" data-net>En línea</span>
-      <button class="btn sm ghost" id="theme" style="justify-content:flex-start">${icon('moon')}<span>Tema claro/oscuro</span></button>
+      <button class="btn sm ghost" data-theme-toggle style="justify-content:flex-start">${icon('moon')}<span>Tema claro/oscuro</span></button>
       <span>Guías: MSP Ecuador · AIEPI · OMS · ESPGHAN</span>
     </div>
   </aside>
   <main class="main">
-    <div class="topbar-mobile"><img src="logo.png" alt=""><strong>PediaCalc EC</strong><span class="status-pill" data-net>En línea</span></div>
+    <div class="topbar-mobile"><img src="logo.png" alt=""><strong>PediaCalc EC</strong><span class="status-pill" data-net>En línea</span>
+      <button class="btn sm ghost icon-only" data-theme-toggle aria-label="Cambiar tema claro/oscuro">${icon('moon')}</button></div>
     <div id="patient"></div>
     <div id="view"></div>
-    <p class="disclaimer">⚠️ Herramienta de apoyo a la decisión clínica. No sustituye el juicio médico ni la normativa vigente del MSP del Ecuador.
-    Verifique dosis, concentraciones y presentaciones disponibles en su establecimiento antes de administrar.</p>
+    <footer class="site-footer">
+      <img class="uni-logo" src="logo-universidad.png" alt="Logo de la universidad">
+      <p class="disclaimer">⚠️ Herramienta de apoyo a la decisión clínica. No sustituye el juicio médico ni la normativa vigente del MSP del Ecuador.
+      Verifique dosis, concentraciones y presentaciones disponibles en su establecimiento antes de administrar.</p>
+    </footer>
   </main>
   <nav class="bottom-nav">${ROUTES.map((r) => `<a href="#/${r.path}" data-r="${r.path}">${icon(r.icon)}<span>${r.short}</span></a>`).join('')}</nav>
 </div>`;
@@ -72,13 +77,13 @@ net();
 // Tema
 const THEME_KEY = 'pediacalc.theme';
 try { const t = localStorage.getItem(THEME_KEY); if (t) document.documentElement.dataset.theme = t; } catch { /* */ }
-document.getElementById('theme')!.addEventListener('click', () => {
+document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.addEventListener('click', () => {
   const dark = document.documentElement.dataset.theme
     ? document.documentElement.dataset.theme === 'dark'
     : matchMedia('(prefers-color-scheme: dark)').matches;
   const next = dark ? 'light' : 'dark';
   document.documentElement.dataset.theme = next;
   try { localStorage.setItem(THEME_KEY, next); } catch { /* */ }
-});
+}));
 
 registerSW({ immediate: true });

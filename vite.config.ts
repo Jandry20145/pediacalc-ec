@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.png', 'icon-180.png', 'icon-64.png'],
+      includeAssets: ['logo.png', 'logo-universidad.png', 'icon-180.png', 'icon-64.png'],
       manifest: {
         name: 'PediaCalc EC — Calculadora Pediátrica',
         short_name: 'PediaCalc',

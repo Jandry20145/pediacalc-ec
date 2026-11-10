@@ -232,3 +232,26 @@ input[type=range] { width: 100%; accent-color: var(--brand); }
 .input-unit em svg { width: 16px; height: 16px; display: block; }
 .card h3 svg { width: 18px; height: 18px; color: var(--brand); flex: none; }
 .btn.sm svg { width: 16px; height: 16px; }
+
+/* ---------- Logo universitario ---------- */
+.uni-badge { display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 12px; background: var(--uni-bg); border: 1px solid var(--border); margin-bottom: 4px; }
+.uni-badge img { height: 34px; width: auto; flex: none; }
+.uni-badge span { font-size: 11px; line-height: 1.3; color: var(--muted); font-weight: 600; }
+.uni-badge img, .uni-logo { filter: var(--uni-filter); }
+.site-footer { display: flex; align-items: center; gap: 14px; margin-top: 28px; border-top: 1px dashed var(--border); padding-top: 14px; }
+.site-footer .disclaimer { margin: 0; border: 0; padding: 0; }
+.uni-logo { height: 30px; width: auto; flex: none; opacity: .95; }
+.btn.icon-only { padding: 4px 8px; }
+.topbar-mobile .status-pill + .btn { margin-left: 4px; }
+
+/* El gris del logo (#c4c3c7) necesita un contorno suave sobre blanco; en oscuro se ve nativo */
+:root { --uni-bg: var(--surface-2); --uni-filter: drop-shadow(0 0 .6px rgba(40, 50, 60, .55)); }
+:root[data-theme="dark"] { --uni-bg: rgba(255, 255, 255, .04); --uni-filter: brightness(1.08); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --uni-bg: rgba(255, 255, 255, .04); --uni-filter: brightness(1.08); }
+}
+@media (max-width: 860px) {
+  .site-footer { align-items: flex-start; }
+  .uni-logo { height: 26px; margin-top: 2px; }
+}
+@media print { .site-footer { display: flex !important; } .uni-logo { filter: none; } }
