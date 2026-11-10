@@ -1,0 +1,7 @@
+services:
+  pediacalc:
+    image: ghcr.io/jandry20145/pediacalc-ec:latest
+    container_name: pediacalc
+    ports:
+      - "8080:80"
+    restart: unless-stopped

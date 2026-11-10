@@ -28,3 +28,10 @@ desde el navegador del teléfono para usarla sin internet.
 - `PLAN_IMPLEMENTACION.md` plan de implementación en 8 fases.
 
 > ⚠️ Herramienta de apoyo. No reemplaza el juicio clínico ni la normativa vigente del MSP. Requiere validación por pediatras antes de su uso asistencial.
+
+## Docker
+Cada push a `main` publica la imagen en GitHub Container Registry (amd64 y arm64):
+```bash
+docker run -d -p 8080:80 --name pediacalc ghcr.io/jandry20145/pediacalc-ec:latest
+```
+o con `docker compose up -d`. Luego abra http://localhost:8080.
