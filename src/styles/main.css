@@ -1,41 +1,46 @@
+/* Paleta neutra estilo Aceternity UI (zinc) con el azul del logo como acento */
 :root {
-  --brand: #1f5f86;
-  --brand-600: #174a69;
-  --brand-50: #eaf3f9;
-  --brand-100: #d3e6f2;
-  --accent: #19a7a0;
-  --bg: #f4f7fa;
-  --surface: #ffffff;
-  --surface-2: #f8fafc;
-  --text: #13212e;
-  --muted: #5b6b7a;
-  --border: #dbe3ea;
-  --ok: #157f4a;
-  --ok-bg: #e6f6ed;
-  --warn: #9a6100;
-  --warn-bg: #fff5de;
-  --bad: #b42318;
-  --bad-bg: #fdecea;
-  --info-bg: #eaf3f9;
-  --shadow: 0 1px 2px rgba(16, 40, 60, .06), 0 4px 16px rgba(16, 40, 60, .06);
-  --radius: 14px;
-  --font: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --brand: #1f6a99;
+  --brand-600: #174f73;
+  --brand-50: rgba(31, 106, 153, .08);
+  --brand-100: rgba(31, 106, 153, .18);
+  --accent: #0891b2;
+  --bg: #fafafa;
+  --surface: rgba(255, 255, 255, .82);
+  --surface-solid: #ffffff;
+  --surface-2: #f4f4f5;
+  --text: #09090b;
+  --muted: #71717a;
+  --border: rgba(9, 9, 11, .09);
+  --grid: rgba(9, 9, 11, .05);
+  --ok: #15803d;
+  --ok-bg: rgba(22, 163, 74, .1);
+  --warn: #a16207;
+  --warn-bg: rgba(234, 179, 8, .13);
+  --bad: #b91c1c;
+  --bad-bg: rgba(220, 38, 38, .09);
+  --info-bg: rgba(31, 106, 153, .07);
+  --shadow: 0 1px 1px rgba(0, 0, 0, .03), 0 8px 24px -12px rgba(0, 0, 0, .12);
+  --radius: 16px;
+  --font: 'Inter Variable', 'Inter', 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --brand: #6cb4e0; --brand-600: #9acdf0; --brand-50: #12283a; --brand-100: #1a3a52;
-    --bg: #0d1620; --surface: #142230; --surface-2: #182a3a; --text: #e6edf3; --muted: #9db0c2; --border: #26394c;
-    --ok: #4fd18b; --ok-bg: #12301f; --warn: #f2c063; --warn-bg: #352a10; --bad: #ff8a80; --bad-bg: #3a1714; --info-bg: #12283a;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.25);
+    --brand: #7cc4f0; --brand-600: #b4def7; --brand-50: rgba(124, 196, 240, .09); --brand-100: rgba(124, 196, 240, .2); --accent: #22d3ee;
+    --bg: #050608; --surface: rgba(16, 18, 22, .72); --surface-solid: #0c0e12; --surface-2: rgba(255, 255, 255, .04);
+    --text: #f4f4f5; --muted: #a1a1aa; --border: rgba(255, 255, 255, .09); --grid: rgba(255, 255, 255, .045);
+    --ok: #4ade80; --ok-bg: rgba(74, 222, 128, .1); --warn: #facc15; --warn-bg: rgba(250, 204, 21, .1); --bad: #f87171; --bad-bg: rgba(248, 113, 113, .11); --info-bg: rgba(124, 196, 240, .08);
+    --shadow: 0 1px 0 rgba(255, 255, 255, .04) inset, 0 12px 32px -16px rgba(0, 0, 0, .7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --brand: #6cb4e0; --brand-600: #9acdf0; --brand-50: #12283a; --brand-100: #1a3a52;
-  --bg: #0d1620; --surface: #142230; --surface-2: #182a3a; --text: #e6edf3; --muted: #9db0c2; --border: #26394c;
-  --ok: #4fd18b; --ok-bg: #12301f; --warn: #f2c063; --warn-bg: #352a10; --bad: #ff8a80; --bad-bg: #3a1714; --info-bg: #12283a;
-  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.25);
+  --brand: #7cc4f0; --brand-600: #b4def7; --brand-50: rgba(124, 196, 240, .09); --brand-100: rgba(124, 196, 240, .2); --accent: #22d3ee;
+  --bg: #050608; --surface: rgba(16, 18, 22, .72); --surface-solid: #0c0e12; --surface-2: rgba(255, 255, 255, .04);
+  --text: #f4f4f5; --muted: #a1a1aa; --border: rgba(255, 255, 255, .09); --grid: rgba(255, 255, 255, .045);
+  --ok: #4ade80; --ok-bg: rgba(74, 222, 128, .1); --warn: #facc15; --warn-bg: rgba(250, 204, 21, .1); --bad: #f87171; --bad-bg: rgba(248, 113, 113, .11); --info-bg: rgba(124, 196, 240, .08);
+  --shadow: 0 1px 0 rgba(255, 255, 255, .04) inset, 0 12px 32px -16px rgba(0, 0, 0, .7);
   color-scheme: dark;
 }
 

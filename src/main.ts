@@ -1,4 +1,7 @@
+import '@fontsource-variable/inter';
 import './styles/main.css';
+import './styles/aceternity.css';
+import { revealView, glow, navIndicator } from './fx';
 import { registerSW } from 'virtual:pwa-register';
 import { icon, type View } from './ui';
 import { mountPatientBar } from './patientBar';
@@ -47,6 +50,9 @@ app.innerHTML = `
 
 mountPatientBar(document.getElementById('patient')!);
 
+const moveNavPill = navIndicator(document.querySelector<HTMLElement>('.sidebar .nav')!);
+window.addEventListener('resize', () => moveNavPill());
+
 const viewEl = document.getElementById('view')!;
 let cleanup: (() => void) | void;
 
@@ -61,6 +67,9 @@ function route() {
   document.querySelectorAll<HTMLAnchorElement>('[data-r]').forEach((a) => a.classList.toggle('active', a.dataset.r === r.path));
   document.getElementById('patient')!.style.display = r.path === '' ? 'none' : '';
   window.scrollTo({ top: 0 });
+  moveNavPill();
+  revealView(host);
+  glow(host);
 }
 window.addEventListener('hashchange', route);
 route();
@@ -87,3 +96,11 @@ document.querySelectorAll('[data-theme-toggle]').forEach((b) => b.addEventListen
 }));
 
 registerSW({ immediate: true });
+
+// Las vistas re-renderizan sus resultados: aplicar el borde luminoso a tarjetas nuevas
+let glowQueued = false;
+new MutationObserver(() => {
+  if (glowQueued) return;
+  glowQueued = true;
+  requestAnimationFrame(() => { glowQueued = false; glow(viewEl); });
+}).observe(viewEl, { childList: true, subtree: true });
